@@ -1,0 +1,80 @@
+.App{
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  display: flex;
+}
+
+.header{
+  margin-top: 30px;
+  font-size: 45px;
+}
+
+.timer{
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 74px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttonsBlock{
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.taskButton{
+  height: 80px;
+  width: 250px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  font-size: 50px;
+  font-weight: 300;
+}
+
+.taskButton:active {
+  transform: translateY(4px);
+}
+
+.taskButton:nth-child(1){
+  border: 5px solid #1df500;
+}
+
+.taskButton:nth-child(2){
+  border: 5px solid rgb(255, 221, 26);
+}
+
+.taskButton:nth-child(3){
+  border: 5px solid rgb(209, 28, 28);
+}
+
+.container{
+  width: 70%
+}
+
+.timesContainer{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.timesHeader{
+  margin-top: 10px;
+  font-size: 45px;
+}
+
+.timesBlock{
+  margin-top: 20px;
+  overflow-y: scroll;
+}
+
+.clockImage{
+  height: 200px;
+  width: 200px;
+  margin-bottom: 40px;
+}
