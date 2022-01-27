@@ -6,7 +6,7 @@ import clock from "./img/clock.png"
 function App() {
   const [time, setTime] = useState(0)
   const [subscription, setSubscription] = useState()
-  const [state, setState] = useState("waiting")
+  const [isTicking, setIsTicking] = useState(false)
   const [doubleClick, setDoubleClick] = useState(0)
   const [calculatedIntervals, setCalculatedIntervals] = useState([])
 
@@ -26,7 +26,7 @@ function App() {
   }
 
   const handleStart = () => {
-    setState("going")
+    setIsTicking(true)
     setSubscription(subscribe())
   }
 
@@ -36,13 +36,13 @@ function App() {
       setDoubleClick(new Date())
     } else {
       subscription.unsubscribe()
-      setState("waiting")
+      setIsTicking(false)
       setDoubleClick(0)
     }
   }
 
   const handleStop = () => {
-    setState("waiting")
+    setIsTicking(false)
     setCalculatedIntervals(calculatedIntervals.concat(time))
     setTime(0)
     subscription.unsubscribe()
@@ -71,12 +71,12 @@ function App() {
 
         </div>
         <div className={styles.buttonsBlock}>
-          {state === "waiting" ?
-            <button type="button" onClick={handleStart} className={styles.taskButton}>
-              Start
-            </button> :
+          {isTicking ?
             <button type="button" onClick={handleStop} className={styles.taskButton}>
               Stop
+            </button> :
+            <button type="button" onClick={handleStart} className={styles.taskButton}>
+              Start
             </button>
           }
           <button type="button" onClick={handleWait} className={styles.taskButton}>
